@@ -1,0 +1,65 @@
+{#
+  ./templates/posts/show.html.twig
+  Variables disponibles:
+    - post(id, titreFr, slug, texte//to add ,image, date  )
+#}
+{% extends 'base.html.twig' %}
+
+  {% block title %}
+    {{ attribute(work, 'titre' ~ app.request.locale) }}
+  {% endblock %}
+{% block content1 %}
+<!-- Page Title -->
+<div class="section section-breadcrumbs">
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <h1>{{ 'titreBlog' | trans }}</h1>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="container">
+<div class="row">
+  <!-- Blog Post -->
+  <div class="col-sm-8">
+    <div class="blog-post blog-single-post">
+      <div class="single-post-title">
+        <h2>{{attribute(post,'titre'~ app.request.locale)}}</h2>
+      </div>
+
+      <div class="single-post-image">
+        <img src="{{asset('img/blog/'~post.image)}}" alt="">
+      </div>
+      <div class="single-post-info">
+        <i class="glyphicon glyphicon-time"></i>30 JAN, 2013 <a href="#" title="Show Comments"><i class="glyphicon glyphicon-comment"></i>11</a>
+      </div>
+      <div class="single-post-content">
+        <h3>{{attribute(post,'stitre'~ app.request.locale)}}</h3>
+        <p> {{attribute(post,'texte'~ app.request.locale)}}</p>
+        <p>
+          {{attribute(post,'texte'~ app.request.locale)}}</p>
+
+        <h3>{{attribute(post,'stitre'~ app.request.locale)}}</h3>
+        <p>
+          {{attribute(post,'texte'~ app.request.locale)}}</p>
+      </div>
+    </div>
+  </div>
+  <!-- End Blog Post -->
+  <!-- Sidebar -->
+  <div class="col-sm-4 blog-sidebar">
+
+    <h4>Recent Posts</h4>
+    {{ render(controller('App\\Controller\\PostController::indexAction',{ vue:'listName', limit:4  })) }}
+    <h4>Categories</h4>
+    {{ render(controller('App\\Controller\\CategorieController::indexAction' ,{'_locale': app.request.locale , limit: 6})) }}
+
+  </div>
+  <!-- End Sidebar -->
+</div>
+</div>
+</div>
+  {% endblock %}

@@ -1,0 +1,12 @@
+{#
+  ./templates/categories/index.html.twig
+  Variables disponibles:
+    - categories(id, titreFr, slug, texte//to add ,image, date  )
+#}
+{% for categorie in categories %}
+
+{# {{ dump(categorie) }} #}
+<ul class="blog-categories">
+<li>{{ attribute(categorie, 'nom' ~ app.request.locale) }}</li>
+</ul>
+{% endfor %}

@@ -1,0 +1,25 @@
+{#
+  ./templates/works/index.html.twig
+  Variables disponibles:
+    - work works (id, titreFr,sTitre, date ,client , slug, texte,)
+#}
+
+
+<ul class="works_index grid cs-style-3">
+{% for work in works %}
+
+<div class="col-md-4 col-sm-6">
+<figure>
+<img src="{{asset('img/portfolio/'~work.image)}}" alt="img05">
+<figcaption>
+  <h3>{{ attribute(work, 'titre' ~ app.request.locale) }}</h3>
+  <span>{{work.client.nom}}</span>
+  <a href="{{ path('app_works_show', {id: work.id , slug: work.slug}) }}">Take a look</a>
+</figcaption>
+</figure>
+</div>
+
+{% endfor %}
+
+
+</ul>

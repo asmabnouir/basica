@@ -1,0 +1,19 @@
+# ./src/Routes/works.yaml
+
+
+#Liste des works
+index:
+    path: /
+    controller: App\Controller\WorkController::indexAction
+
+olders:
+    path: /olders
+    controller: App\Controller\WorkController::oldersAction
+
+#Détail d'un work
+show:
+    path: /{id}/{slug}/{_locale}
+    controller: App\Controller\WorkController::showAction
+    requirements:
+        id:   '[1-9][0-9]*'
+        slug: '[a-z][a-z0-9\-]*'

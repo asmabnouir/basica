@@ -1,0 +1,11 @@
+{#
+  ./templates/tags/index.html.twig
+  Variables disponibles:
+    - tags(idnom,slug  )
+#}
+{% for tag in tags %}
+<ul class="blog-tags">
+  <li><a href="{{ path('app_tags_show', {id: tag.id , slug: tag.slug}) }}">{{tag.nomEn}}</a></li>  {# prob avec tag.nomfr#}
+
+</ul>
+{% endfor %}

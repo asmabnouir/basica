@@ -1,0 +1,10 @@
+{#
+  ./templates/tags/index.html.twig
+  Variables disponibles:
+    - tags(idnom,slug  )
+#}
+{% for tag in tags %}
+<ul class="blog-tags">
+  <li><a href="#">{{attribute(tag,'nom'~ app.request.locale)}}</a></li>
+</ul>
+{% endfor %}

@@ -1,0 +1,11 @@
+{#
+  ./templates/posts/listName.html.twig
+  Variables disponibles:
+    - post posts(id, titreFr, slug, texte//to add ,image, date  )
+#}
+
+<ul class="recent-posts">
+      {% for post in posts %}
+        <li><a href="{{ path('app_posts_show', {id: post.id, slug: post.slug}) }}">{{attribute(post,'titre'~app.request.locale)}}</a></li>
+      {% endfor %}
+</ul>

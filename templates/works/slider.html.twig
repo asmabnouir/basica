@@ -1,0 +1,53 @@
+{#
+  ./templates/works/slider.html.twig
+  Variables disponibles:
+    - work works (id, titreFr,sTitre, date ,client , slug, texte,)
+#}
+
+<section id="main-slider" class="no-margin">
+
+    <div class="carousel slide">
+        <ol class="carousel-indicators">
+        {% set isfirst = true %}
+            {% for work in works %}
+          {% if isfirst == true %}
+          <li data-target="#main-slider" data-slide-to= "{{loop.index0}}" class:"active" ></li>
+          {% else %}
+            <li data-target="#main-slider" data-slide-to= "{{loop.index0}}" ></li>
+        {% endif %}
+
+            {% endfor %}
+        </ol>
+
+        <div class="carousel-inner">
+        {% set isfirst = true %}
+        {% for work in works %}
+        {% if isfirst == true %}
+      <div class="item active" style="background-image: url({{asset('img/portfolio/'~work.image)}})">
+
+      {% else %}
+        <div class="item " style="background-image: url({{asset('img/portfolio/'~work.image)}})">
+
+      {% endif %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="carousel-content centered">
+                            <h2 class="animation animated-item-1">{{ attribute(work, 'titre' ~ app.request.locale) }}</h2>
+                            <p class="animation animated-item-2">{{ attribute(work, 'texte' ~ app.request.locale) }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      {% set isfirst = false %}
+        {% endfor %}
+        </div>
+    </div><!--/.carousel-->
+    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+        <i class="icon-angle-left"></i>
+    </a>
+    <a class="next hidden-xs" href="#main-slider" data-slide="next">
+        <i class="icon-angle-right"></i>
+    </a>
+</section><!--/#main-slider-->

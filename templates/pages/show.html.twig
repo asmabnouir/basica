@@ -1,0 +1,154 @@
+{#
+  ./templates/pages/show.html.twig
+  Variables disponibles:
+    - page (id, titreFr, slug, texte)
+#}
+
+{% extends 'base.html.twig' %}
+
+  {% block title %}
+    {{ page.titreFr }}
+  {% endblock %}
+
+        {% block content1 %}
+
+        {% if  page.id == 1 %}
+
+          {{ render(controller('App\\Controller\\WorkController::indexAction', {vue: 'slider', limit: 3 } )) }}
+
+          <!-- Our Portfolio -->
+            <div class="section section-white">
+    	        <div class="container">
+    	        	<div class="row">
+
+        				<div class="section-title">
+        				<h1>{{'homepage.index_work' | trans}}</h1>
+        				</div>
+                  {{ render(controller('App\\Controller\\WorkController::indexAction', {limit: 6 } )) }}
+                </div>
+	           </div>
+	         </div>
+      		<!-- Our Portfolio -->
+
+        <hr>
+
+        <!-- Our Articles -->
+          <div class="section">
+            <div class="container">
+              <div class="row">
+
+                <!-- Featured News -->
+                <div class="col-sm-6 featured-news">
+                  <h2>{{'homepage.index_post' | trans}}</h2>
+                  {{ render(controller('App\\Controller\\PostController::indexAction',{ limit: 3 })) }}
+                  </div>
+                <!-- End Featured News -->
+
+                  <!-- Latest News FB -->
+                  {% include 'partials/FbNews.html.twig' %}
+                  <!-- End Featured News -->
+                </div>
+            </div>
+          </div>
+      {% elseif page.id == 2 %}
+
+      <div class="section section-breadcrumbs">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1>{{ attribute(page, 'titre' ~ app.request.locale) }}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <div class="section">
+          <div class="container">
+          <div class="row">
+          <div class="col-sm-12">
+              <h2>{{'page2.h2' | trans}}</h2>
+              <h3>{{'page2.h3' | trans}}</h3>
+              <p>{{ attribute(page, 'texte' ~ app.request.locale) }}</p>
+
+          </div>
+          </div>
+        </div>
+      </div>
+
+          <div class="section">
+          <div class="container">
+            <div class="row">
+            <div id= 'list-works'>
+                {{ render(controller('App\\Controller\\WorkController::indexAction', {limit: 6 } )) }}
+            </div>
+
+            </div>
+
+            <ul class="pager">
+              <li><a id='moreWorks' href="#" data-url="{{path('app_works_olders')}}">{{'olders' | trans}}</a></li>
+            </ul>
+
+        </div>
+      </div>
+
+    {% elseif page.id == 3 %}
+    <!-- Page Title -->
+        <div class="section section-breadcrumbs">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1>{{page.titreFr}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{ render(controller('App\\Controller\\PostController::indexAction', {vue: 'list', limit:4})) }}
+
+      {% elseif page.id == 4 %}
+
+              <!-- Page Title -->
+      		<div class="section section-breadcrumbs">
+      			<div class="container">
+      				<div class="row">
+      					<div class="col-md-6">
+      						<h1>{{ attribute(page, 'titre' ~ app.request.locale) }}</h1>
+      					</div>
+      				</div>
+      			</div>
+      		</div>
+
+              <div class="section section-map">
+      	        		<div class="col-sm-12" style="padding:0;">
+      	        			<!-- Map -->
+      	        			<div id="contact-us-map">
+      							<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+      							<br />
+      							<small>
+      								<a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+      							</small>
+      							</iframe>
+      	        			</div>
+      	        			<!-- End Map -->
+      					</div>
+      	    </div>
+
+              <div class="section">
+      	    	<div class="container">
+      	        	<div class="row">
+      					<h3>{{ attribute(page, 'sTitre' ~ app.request.locale) }}</h3>
+      					</hr>
+      	        		<div class="col-sm-6">
+      	        			<!-- Contact Info -->
+      	        			<p class="contact-us-details">{{ attribute(page, 'texte' ~ app.request.locale) }}</p>
+      	        			<!-- End Contact Info -->
+      	        		</div>
+      	        		<div class="col-sm-6">
+
+      	        		</div>
+      	        	</div>
+      	    	</div>
+      	    </div>
+
+      {% endif %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{#
+  ./templates/posts/listByCategorie.html.twig
+  Variables disponibles:
+
+#}
+{% for post in posts %}
+<div class="col-sm-6">
+  <div class="blog-post blog-single-post">
+    <div class="single-post-title">
+      <h2>{{ attribute(post, 'titre' ~ app.request.locale) }}</h2>
+    </div>
+
+    <div class="single-post-image">
+      <img src="{{asset('img/blog/'~post.image)}}" alt="">
+    </div>
+
+    <div class="single-post-info">
+      <i class="glyphicon glyphicon-time"></i>{{post.date | date ("m/d/Y")}} <a href="#" title="Show Comments"><i class="glyphicon glyphicon-comment"></i>11</a>
+    </div>
+
+    <div class="single-post-content">
+      <p>{{ attribute(post, 'texte' ~ app.request.locale) }}</p>
+    <a href="{{ path('app_posts_show', {id: post.id, slug: post.slug}) }}" class="btn">Read more</a>
+    </div>
+  </div>
+</div>
+<!-- End Blog Post Excerpt -->
+
+{% endfor %}

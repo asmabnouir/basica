@@ -1,0 +1,31 @@
+{#
+  ./templates/categories/show.html.twig
+  Variables disponibles:
+    - categories(id, nom , slug   )
+#}
+
+{% extends 'base.html.twig' %}
+
+  {% block title %}
+    {{ attribute(categorie, 'nom' ~ app.request.locale) }}
+  {% endblock %}
+
+{% block content1 %}
+
+<!-- Page Title -->
+<div class="section section-breadcrumbs">
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <h1>Categorie Details</h1>
+  </div>
+</div>
+</div>
+</div>
+
+
+<hr>
+<div class="row">
+{% include 'posts/listByCategorie.html.twig' with {posts: categorie.posts} %}
+</div>
+  {% endblock %}

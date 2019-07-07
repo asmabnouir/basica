@@ -1,0 +1,17 @@
+# ./src/Routes/tags.yaml
+
+
+#Liste des tags
+index:
+    path: /
+    controller: App\Controller\TagController::indexAction
+
+
+
+#Détail d'un tag
+show:
+    path: /{id}/{slug}/{_locale}
+    controller: App\Controller\TagController::showAction
+    requirements:
+        id:   '[1-9][0-9]*'
+        slug: '[a-z][a-z0-9\-]*'

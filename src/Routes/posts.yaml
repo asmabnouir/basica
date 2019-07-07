@@ -1,0 +1,17 @@
+# ./src/Routes/posts.yaml
+
+
+#Liste des posts
+index:
+    path: /
+    controller: App\Controller\PostController::indexAction
+
+
+
+#Détail d'un post
+show:
+    path: /{id}/{slug}/{_locale}
+    controller: App\Controller\PostController::showAction
+    requirements:
+        id:   '[1-9][0-9]*'
+        slug: '[a-z][a-z0-9\-]*'

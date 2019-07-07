@@ -1,0 +1,30 @@
+{#
+  ./templates/partials/nav.html.twig
+#}
+
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="{{asset('img/logo.png')}}" alt="Basica"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+
+      {{ render(controller('App\\Controller\\PageController::indexAction',  {current_path: app.request.get('_route'),  currentId: app.request.get('_route_params')['id'] } )) }}
+        </div>
+        <div class="float-right">
+
+        {% set  current_path = app.request.get('_route')%}
+        {% set params =  app.request.get('_route_params')  %}
+
+      <a href="{{path(current_path, params|merge({'_locale': 'fr'})) }}" {% if app.request.locale == 'fr' %} class="active"{% endif %} >FR</a>
+    <a href="{{ path(current_path, params|merge({'_locale': 'en'})) }}" {% if app.request.locale == 'en' %} class="active"{% endif %}>EN</a>
+
+        </div>
+    </div>
+</header><!--/header-->

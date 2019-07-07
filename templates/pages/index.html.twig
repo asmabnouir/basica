@@ -1,0 +1,17 @@
+{#
+  ./templates/pages/index.html.twig
+  Variables disponibles:
+  - page pages(id, titreFr, slug, texte)
+#}
+<ul class="nav navbar-nav navbar-right">
+{% for page in pages %}
+{% if (page.id == 1 and current_path == 'app_homepage') or currentId == page.id%}
+<li class=" active">
+{% else %}
+    <li>
+     {% endif %}
+<a class="nav-link " href="{{ path('app_pages_show', {id: page.id, slug: page.slug}) }}">{{ attribute(page, 'titre' ~ app.request.locale) }}
+  </a>
+  </li>
+{% endfor %}
+</ul>

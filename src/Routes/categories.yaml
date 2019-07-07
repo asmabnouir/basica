@@ -1,0 +1,17 @@
+# ./src/Routes/categories.yaml
+
+
+#Liste des categories
+index:
+    path: /
+    controller: App\Controller\CategorieController::indexAction
+
+
+
+#Détail d'un categorie
+show:
+    path: /{id}/{slug}/{_locale}
+    controller: App\Controller\CategorieController::showAction
+    requirements:
+        id:   '[1-9][0-9]*'
+        slug: '[a-z][a-z0-9\-]*'

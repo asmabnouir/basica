@@ -1,0 +1,74 @@
+{#
+  ./templates/works/show.html.twig
+  Variables disponibles:
+  work ( id, titreFr,sTitre, date ,client , slug, texte)
+#}
+{% extends 'base.html.twig' %}
+
+  {% block title %}
+    {{ attribute(work, 'titre' ~ app.request.locale) }}
+  {% endblock %}
+{% block content1 %}
+
+<!-- Page Title -->
+<div class="section section-breadcrumbs">
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <h1>Product Details</h1>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="container">
+  <div class="row">
+    <!-- Product Image & Available Colors -->
+    <div class="col-sm-6">
+      <div class="product-image-large">
+        <img src="{{asset('img/portfolio/'~work.image)}}" alt="Item Name">
+      </div>
+      <div class="colors">
+      <span class="color-white"></span>
+      <span class="color-black"></span>
+      <span class="color-blue"></span>
+      <span class="color-orange"></span>
+      <span class="color-green"></span>
+    </div>
+    </div>
+    <!-- End Product Image & Available Colors -->
+    <!-- Product Summary & Options -->
+    <div class="col-sm-6 product-details">
+      <h2>{{ attribute(work, 'titre' ~ app.request.locale) }}</h2>
+    <h3>Quick Overview</h3>
+      <p>
+    {{ attribute(work, 'texte' ~ app.request.locale) }}  </p>
+      <p>
+    {{ attribute(work, 'titre' ~ app.request.locale) }}</p>
+    <h3>Project Details</h3>
+    <p><strong>Client: </strong>{{work.client.nom}}</p>
+    <p><strong>Date: </strong>{{work.date | date("m/d/Y")}}</p>
+    <p><strong>Tags: </strong> {% include 'tags/indexByWork.html.twig' with {tags: work.tags} %}</p>
+    </div>
+    <!-- End Product Summary & Options -->
+
+  </div>
+</div>
+</div>
+
+<hr>
+
+<div class="section">
+<div class="container">
+<div class="row">
+
+<div class="section-title">
+<h1>Similar Works</h1>
+</div>
+{{ render(controller('App\\Controller\\WorkController::similarAction',{ 'param':work})) }}
+</div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+# ./translations/messages.fr.yaml
+
+homepage:
+    index_work: 'Derniers Projets'
+    index_post: 'Derniers Posts'
+
+
+page2:
+    h2 : 'Nous gérons une société '
+    h3 : 'spécialisé dans le développement des theme Wordpress'
+    olders: 'Plus de projets'
+    Details projet: 'Details projet'
+footer:
+    titre1 : 'Contacter nous '
+    titre2 : 'Nous suivre'
+    texte2 : 'Lorem ipsum Français dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.'
+    titre3 : 'A propos de notre société '
+    texte3 : 'Lorem ipsum Français dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.'

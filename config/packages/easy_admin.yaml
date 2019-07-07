@@ -1,0 +1,52 @@
+#easy_admin:
+#    entities:
+#        # List the entity class name you want to manage
+#        - App\Entity\Product
+#        - App\Entity\Category
+#        - App\Entity\User
+
+easy_admin:
+    site_name: "Basica Portfolio"
+
+    entities:
+        # List the entity class name you want to manage
+            Page:
+                App\Entity\Page
+            Post:
+                class: App\Entity\Post
+
+                form:
+                  fields:
+                      - {property: 'titreFr'}
+                      - {property: 'titreEn'}
+                      - {property: 'sTitreFr'}
+                      - {property: 'sTitreEn'}
+                      - {property: 'texteFr', type: 'fos_ckeditor'}
+                      - {property: 'texteEn', type: 'fos_ckeditor'}
+                      - {property: 'categories'}
+                      - {property: 'date'}
+                      - {property: 'slug'}
+                      - { property: 'imageFile', type: 'vich_image' }
+
+
+
+            Categorie:
+                App\Entity\Categorie
+
+            Tag:
+                App\Entity\Tag
+            Work:
+                class: App\Entity\Work
+                form:
+                    fields:
+                      - {property: 'titreFr'}
+                      - {property: 'titreEn'}
+                      - {property: 'sTitreFr'}
+                      - {property: 'sTitreEn'}
+                      - {property: 'texteFr', type: 'fos_ckeditor'}
+                      - {property: 'texteEn', type: 'fos_ckeditor'}
+
+                      - {property: 'tags'}
+                      - {property: 'date'}
+                      - {property: 'slug'}
+                      - { property: 'imageFile', type: 'vich_image' }

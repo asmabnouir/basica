@@ -1,0 +1,10 @@
+# ./src/Routes/pages.yaml
+
+
+#Détail d'une page
+show:
+    path: /{id}/{slug}/{_locale}
+    controller: App\Controller\PageController::showAction
+    requirements:
+        id:   '[1-9][0-9]*'
+        slug: '[a-z][a-z0-9\-]*'

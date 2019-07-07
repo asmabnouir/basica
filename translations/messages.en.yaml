@@ -1,0 +1,19 @@
+# ./translations/messages.en.yaml
+
+# texte court
+homepage:
+    index_work: 'Our recent works'
+    index_post: 'Our latest Posts'
+
+page2:
+    h2 : 'We are leading company'
+    h3 : 'Specializing in Wordpress Theme Development'
+    olders: 'More works'
+    Details projet: 'Take a look'
+
+footer:
+    titre1 : 'Contact Us'
+    titre2 : 'Our Social Networks'
+    texte2 : 'Lorem ipsum English dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.'
+    titre3 : 'About Our Company'
+    texte3 : 'Lorem ipsum English dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.'

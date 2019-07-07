@@ -1,0 +1,13 @@
+parameters:
+    app.path.work_images: /img/portfolio/
+    app.path.post_images: /img/blog/
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        work_image:
+            uri_prefix:         '%app.path.work_images%'
+            upload_destination: '%kernel.root_dir%/../public/%app.path.work_images%'
+        post_image:
+            uri_prefix:         '%app.path.post_images%'
+            upload_destination: '%kernel.root_dir%/../public/%app.path.post_images%'
