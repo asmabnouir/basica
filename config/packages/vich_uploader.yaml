@@ -7,7 +7,7 @@ vich_uploader:
     mappings:
         work_image:
             uri_prefix:         '%app.path.work_images%'
-            upload_destination: '%kernel.root_dir%/../public/%app.path.work_images%'
+            upload_destination: '%kernel.root_dir%/../public/portfolio/%app.path.work_images%'
         post_image:
             uri_prefix:         '%app.path.post_images%'
-            upload_destination: '%kernel.root_dir%/../public/%app.path.post_images%'
+            upload_destination: '%kernel.root_dir%/../public/blog/%app.path.post_images%'
